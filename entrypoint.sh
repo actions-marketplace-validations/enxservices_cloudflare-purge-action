@@ -35,6 +35,8 @@ fi
 # If URL array is passed, only purge those. Otherwise, purge everything.
 if [ -n "$PURGE_URLS" ]; then
   set -- --data '{"files":'"${PURGE_URLS}"'}'
+elif [ -n "$PURGE_HOSTS" ]; then
+  set -- --data '{"hosts":'"${PURGE_HOSTS}"'}'
 else
   set -- --data '{"purge_everything":true}'
 fi
